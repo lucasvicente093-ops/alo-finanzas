@@ -8,7 +8,24 @@
   <title>Alo Finanzas</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="auth-locked">
+  <section class="auth-gate" id="auth-gate" aria-labelledby="auth-title">
+    <div class="auth-card">
+      <div class="auth-brand" aria-hidden="true"><span class="brand-mark"><i></i><i></i><i></i></span><strong>Alo</strong><small>Finanzas</small></div>
+      <p class="auth-eyebrow">Acceso privado</p>
+      <h1 id="auth-title">Entrá a tu espacio financiero</h1>
+      <p class="auth-intro">Ingresá tus credenciales para continuar.</p>
+      <form id="auth-form" class="auth-form">
+        <label for="auth-username">Usuario</label>
+        <input id="auth-username" name="username" type="text" autocomplete="username" required spellcheck="false">
+        <label for="auth-password">Contraseña</label>
+        <input id="auth-password" name="password" type="password" autocomplete="current-password" required>
+        <p class="auth-error" id="auth-error" role="alert" aria-live="polite"></p>
+        <button class="primary" id="auth-submit" type="submit">Ingresar</button>
+      </form>
+      <p class="auth-note">La sesión se cierra al cerrar esta pestaña.</p>
+    </div>
+  </section>
   <!--
   THESIS: Una agenda financiera que junta caja, vencimientos y registro; evita la grilla genérica de indicadores aislados.
   OWN-WORLD: Papel frío, verde tinta, arcilla para gastos, tablas continuas, cifras tabulares y divisores finos.
@@ -24,6 +41,7 @@
       <div><strong>Alo</strong><small>Finanzas</small></div>
     </div>
     <nav id="nav"></nav>
+    <button class="auth-logout" id="auth-logout" type="button">Cerrar sesión</button>
     <div class="sidebar-foot">
       <span class="status-dot" aria-hidden="true"></span>
       <div><strong id="storage-status">Guardado en este dispositivo</strong><small>Exportá un respaldo con frecuencia</small></div>
@@ -62,6 +80,7 @@
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <input id="restore-file" type="file" accept="application/json,.json" hidden>
+  <script type="module" src="auth.js"></script>
   <script type="module" src="app.js"></script>
 </body>
 </html>

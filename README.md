@@ -27,3 +27,8 @@ La vista de demostración usa datos ficticios y no modifica los datos guardados.
 ```powershell
 node --test tests/*.test.mjs
 ```
+
+
+## Acceso
+
+La versión publicada solicita usuario y contraseña. La contraseña no se guarda en texto plano en el repositorio. La sesión dura hasta cerrar la pestaña y se bloquean temporalmente los intentos repetidos.
