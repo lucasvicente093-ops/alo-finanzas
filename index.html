@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18382e">
+  <meta name="description" content="Sistema personal para administrar finanzas, emprendimientos, presupuestos y vencimientos en ARS y USD.">
+  <title>Alo Finanzas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--
+  THESIS: Una agenda financiera que junta caja, vencimientos y registro; evita la grilla genérica de indicadores aislados.
+  OWN-WORLD: Papel frío, verde tinta, arcilla para gastos, tablas continuas, cifras tabulares y divisores finos.
+  STORY: Lucas ve qué tiene, qué está reservado y qué debe pagar; luego registra una operación sin duplicarla.
+  FIRST VIEWPORT: Navegación lateral fija, encabezado y acción primaria; resumen de caja, evolución y agenda comparten la vista.
+  FORM: Agenda financiera, séptima dirección derivada, semilla 28c9bf10.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+  -->
+  <a class="skip-link" href="#content">Saltar al contenido</a>
+  <aside class="sidebar" id="sidebar" aria-label="Navegación principal">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <div><strong>Alo</strong><small>Finanzas</small></div>
+    </div>
+    <nav id="nav"></nav>
+    <div class="sidebar-foot">
+      <span class="status-dot" aria-hidden="true"></span>
+      <div><strong id="storage-status">Guardado en este dispositivo</strong><small>Exportá un respaldo con frecuencia</small></div>
+    </div>
+  </aside>
+  <button class="nav-scrim" data-action="menu" aria-label="Cerrar navegación" tabindex="-1" aria-hidden="true"></button>
+  <main class="shell">
+    <div id="demo-banner" class="demo-banner" hidden>
+      Estás explorando datos ficticios. Los cambios no afectan tus datos.
+      <button data-action="demo">Volver a mis datos</button>
+    </div>
+    <header class="topbar">
+      <button class="menu-button" data-action="menu" aria-label="Abrir navegación" aria-controls="sidebar" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="page-heading">
+        <h1 id="page-title">Vista general</h1>
+        <p id="page-subtitle">Una mirada clara a tus finanzas personales y negocios.</p>
+      </div>
+      <div class="top-actions">
+        <button class="rate-chip" id="rate-chip" data-action="navigate" data-section="settings">Configurar dólar</button>
+        <button class="primary new-button" id="new-button" data-action="new">Nuevo movimiento</button>
+      </div>
+    </header>
+    <div class="global-alert" id="global-alert" role="status" hidden></div>
+    <div id="content" tabindex="-1"></div>
+  </main>
+  <dialog id="drawer" class="drawer" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <div><span class="drawer-context">Alo Finanzas</span><h2 id="drawer-title">Agregar movimiento</h2></div>
+      <button class="icon-button" type="button" data-action="close" aria-label="Cerrar formulario">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+      </button>
+    </div>
+    <form id="record-form"></form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <input id="restore-file" type="file" accept="application/json,.json" hidden>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
